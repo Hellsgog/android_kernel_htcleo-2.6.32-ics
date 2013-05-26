@@ -606,7 +606,7 @@ void kgsl_late_resume_driver(struct early_suspend *h)
 	mutex_lock(&device->mutex);
 	device->pwrctrl.restore_slumber = 0;
 	if (device->pwrscale.policy == NULL)
-	 kgsl_pwrctrl_pwrlevel_change(device, KGSL_PWRLEVEL_TURBO)
+	kgsl_pwrctrl_pwrlevel_change(device, KGSL_PWRLEVEL_TURBO);
 	kgsl_pwrctrl_wake(device);
 	kgsl_check_idle(device);
 	KGSL_PWR_WARN(device, "late resume end\n");
